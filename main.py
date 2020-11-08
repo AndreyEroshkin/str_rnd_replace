@@ -30,7 +30,7 @@ def replace(file_path, tgt_fld: str, a=1000, b=10_000):
 if __name__ == '__main__':
     # Path to edited files. In all files in directory field will be replaced
     PATH_DIR = './data/'
-    # Target field
+    # Target field name with = sign.
     FIELD_FOR_REPLACE = "FLD('S')="
 
     file_list = glob(pathname=PATH_DIR+'*', recursive=False)
