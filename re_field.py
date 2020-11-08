@@ -3,7 +3,7 @@ import tempfile
 import shutil
 import os
 
-def replace(file_path, tgt_fld: str, a=1000, b=10_000):
+def replace(file_path, tgt_fld, a=1000, b=10_000):
     is_changed = False
     #Create temp file
     fh, abs_path = tempfile.mkstemp()
@@ -25,7 +25,7 @@ def replace(file_path, tgt_fld: str, a=1000, b=10_000):
     #Move new file
     shutil.move(abs_path, file_path)
 
-def get_files_paths (basepath: str):
+def get_files_paths (basepath):
     for fname in os.listdir(PATH_DIR):
         path = os.path.join(basepath, fname)
         if os.path.isdir(path):
