@@ -3,7 +3,11 @@ import tempfile
 import shutil
 import os
 
-def replace(file_path, tgt_fld, a=1000, b=10_000):
+def replace(file_path, tgt_fld, a=1000, b=10000):
+    """
+    Replace number in target field on random integer
+    from a to b.
+    """
     is_changed = False
     #Create temp file
     fh, abs_path = tempfile.mkstemp()
@@ -15,9 +19,9 @@ def replace(file_path, tgt_fld, a=1000, b=10_000):
                     is_changed = True
                 new_file.write(line)
     if is_changed:
-        print(f'Field {tgt_fld} in {file_path} changed.')
+        print('Field {} in {} changed.'.format(tgt_fld, file_path))
     else:
-        print(f'Field "{tgt_fld}" in {file_path} not found.')
+        print('Field "{}" in {} not found.'.format(tgt_fld, file_path))
     #Copy the file permissions from the old file to the new file
     shutil.copymode(file_path, abs_path)
     #Remove original file
@@ -44,5 +48,5 @@ if __name__ == '__main__':
         try:
             replace(file_path=file, tgt_fld=FIELD_FOR_REPLACE)
         except Exception as e:
-            print(f'Error while processing file {file}.')
+            print('Error while processing file {}.'.format(file))
             print(e)
